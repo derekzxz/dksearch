@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leaders of famous companies</title>
+
+    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <script src="{% static 'javascript.js' %}"></script>
+
+    <script>
+    $( function() {
+      var availableTags = [
+        "Paul",
+        "Mary",
+        "John",
+        "Belle",
+        "Anne",
+        "Jack",
+        "Beatrix",
+        "Daniel",
+        "CEO",
+        "CTO",
+        "Chairman",
+        "Director",
+        "Nike",
+        "Adidas",
+        "McDonald",
+        "KFC",
+        "Alibaba",
+        "Tencent",
+        "Google",
+        "Geely",
+        "Footwear",
+        "Food",
+        "Internet",
+        "Automotive",
+        "USA",
+        "Europe",
+        "China"
+      ];
+      $( "#leaders" ).autocomplete({
+        source: availableTags,
+        minLength: 2,
+      });
+    } );
+  </script>
+</head>
+<body>
+<h1>Hi, I am index !</h1>
+
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>Dropdown Searchbox</h2>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-horizontal">
+            <div class="input-group">
+              <div class="ddl-select input-group-btn">
+                <select id="ddlsearch" class="selectpicker form-control" data-style="btn-primary">
+                  <option value="" data-hidden="true" class="ddl-title">SEARCH</option>
+                  <option value="google">Google</option>
+                  <option value="yahoo">Yahoo</option>
+                  <option value="bing">Bing</option>
+                </select>
+              </div>
+              <input id="txtkey" class="form-control" placeholder="Enter here" aria-describedby="ddlsearch" type="text">
+              <span class="input-group-btn">
+                <button id="btn-search" class="btn btn-info" type="button"><i class="fa fa-search fa-fw"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div id="sresult" class="well"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

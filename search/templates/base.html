@@ -1,0 +1,61 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leaders of famous companies</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.js"></script>
+    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <script>
+    $( function() {
+      var availableTags = [
+        "Paul",
+        "Mary",
+        "John",
+        "Belle",
+        "Anne",
+        "Jack",
+        "Beatrix",
+        "Daniel",
+        "CEO",
+        "CTO",
+        "Chairman",
+        "Director",
+        "Nike",
+        "Adidas",
+        "McDonald",
+        "KFC",
+        "Alibaba",
+        "Tencent",
+        "Google",
+        "Geely",
+        "Footwear",
+        "Food",
+        "Internet",
+        "Automotive",
+        "USA",
+        "Europe",
+        "China"
+      ];
+      $( "#{{ form.search_text.auto_id }}" ).autocomplete({
+        source: availableTags,
+        minLength: 2,
+      });
+    } );
+  </script>
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

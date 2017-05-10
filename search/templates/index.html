@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <form action="" method="post" class="form">
+      {% csrf_token %}
+      <div class="col-md-2">
+      {% bootstrap_field form.search_filter %}
+      </div>
+      <div class="col-md-5">
+      {% bootstrap_field form.search_text placeholder='Search...' show_label=False %}
+        </div>
+      <div class="col-md-2">
+      {% buttons %}
+        <button type="submit" class="btn btn-primary">
+          Search
+        </button>
+        </div>
+      {% endbuttons %}
+    </form>
+  </div>
+  {% if not no_match %}
+  <div class="row col-md-8 center-block">
+    {% for leader in leaders %}
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ leader.person}}</h3>
+      </div>
+      <div class="panel-body">
+        is the {{ leader.title }} of {{ leader.company }} from {{ leader.geography }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="row col-md-8 center-block">
+      {% if need_pagination %}
+        <div id="pagination">
+            <span class="step-links">
+                {% if leaders.has_previous %}
+                  <nav aria-label="...">
+                    <ul class="pager">
+                      <li><a href="?page={{ leaders.previous_page_number }}">Previous</a></li>
+                    </ul>
+                  </nav>
+                {% endif %}
+                {% if leaders.has_next %}
+                  <nav aria-label="...">
+                    <ul class="pager">
+                      <li><a href="?page={{ leaders.next_page_number }}">Next</a></li>
+                    </ul>
+                  </nav>
+                {% endif %}
+            </span>
+        </div>
+      {% endif %}
+  </div>
+  {% else %}
+  <p style="font-size: 1.5em">Sorry, no matched items founded.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
